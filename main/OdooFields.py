@@ -24,7 +24,7 @@ with menuopt01:
     ModelOptions = ['CRM', 'Partner']
     ModelSel = st.selectbox("Seleccionar modelo:", ModelOptions)
 with menuopt02:
-    DataTypeOptions = ['datetime', 'boolean', 'many2one', 'date', 'selection', 'char', 'float', 'integer', 'html', 'many2many', 'monetary', 'one2many', 'text']
+    DataTypeOptions = ['All', 'datetime', 'boolean', 'many2one', 'date', 'selection', 'char', 'float', 'integer', 'html', 'many2many', 'monetary', 'one2many', 'text']
     DataTypeSel = st.selectbox("Seleccionar tipo de datos:", DataTypeOptions)
     
 if ModelSel == 'CRM':
@@ -44,7 +44,10 @@ if ModelSel == 'CRM':
     # Ordenar el DataFrame por el nombre del campo
     df_fields = df_fields.sort_values('Nombre')
     # Mostrar el DataFrame
-    df_fields = df_fields[df_fields['type'] == DataTypeSel].reset_index(drop=True)
+    if DataTypeSel == 'All':
+        df_fields = df_fields
+    else:
+        df_fields = df_fields[df_fields['type'] == DataTypeSel].reset_index(drop=True)
     st.dataframe(df_fields)
     
 elif ModelSel == 'Partner':
