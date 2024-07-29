@@ -17,3 +17,29 @@ odoo = odoorpc.ODOO(url, port=port, protocol='jsonrpc+ssl')
 odoo.login(db, username, password)
 # Verificar la conexión obteniendo el usuario actual
 user = odoo.env.user
+
+# Obtener todos los campos del modelo crm.lead
+fields = odoo.env['crm.lead'].fields_get()
+
+# Crear una lista para almacenar la información de los campos
+field_info = []
+
+# Iterar sobre los campos y extraer información relevante
+for field_name, field_data in fields.items():
+    field_info.append({
+        'Nombre': field_name,
+        'Tipo': field_data.get('type'),
+        'String': field_data.get('string'),
+        'Ayuda': field_data.get('help'),
+        'Requerido': field_data.get('required', False),
+        'Readonly': field_data.get('readonly', False),
+    })
+
+# Crear un DataFrame con la información de los campos
+df_fields = pd.DataFrame(field_info)
+
+# Ordenar el DataFrame por el nombre del campo
+df_fields = df_fields.sort_values('Nombre')
+
+# Mostrar el DataFrame
+print(df_fields)
