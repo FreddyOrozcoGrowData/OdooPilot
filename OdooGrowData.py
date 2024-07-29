@@ -12,7 +12,7 @@ import odoorpc
 
 st.set_page_config(layout="wide")
 navigation_tree = {
-    "Odoo Grow Data": [
+    "Odoo Data": [
         st.Page("main/OdooCRM.py", title="Odoo CRM"),   
         st.Page("main/OdooClientes.py", title="Odoo Clientes")]
 }
@@ -20,7 +20,7 @@ navigation_tree = {
 nav = st.navigation(navigation_tree, position="sidebar")
 nav.run()
 
-st.sidebar.title("GROWDATA")
+st.sidebar.title("GROW DATA")
 
 # Configurar la conexión
 url = 'grow-data.odoo.com'
