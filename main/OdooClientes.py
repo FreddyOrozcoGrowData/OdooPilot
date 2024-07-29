@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import odoorpc
 
-st.set_page_config(layout='wide')
-st.title("ODOO GW")
+st.title("ODOO CLIENTES")
 
 # Configurar la conexión
 url = 'grow-data.odoo.com'
