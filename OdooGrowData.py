@@ -29,3 +29,29 @@ st.write("USERNAME: "+user.name+"")
 st.write(user.id)
 
 #st.write("Conectado como: {user.name} (ID: {user.id})")
+
+
+
+# Crear una lista vacía para almacenar los datos de los leads
+lead_data = []
+
+# Buscar todos los leads
+leads = odoo.env['crm.lead'].search([])
+
+# Iterar sobre los leads y agregar los datos a la lista
+for lead_id in leads:
+    lead = odoo.env['crm.lead'].browse(lead_id)
+    lead_data.append({
+        'ID': lead.id,
+        'Nombre': lead.name,
+        'Correo': lead.email_from,
+        'Teléfono': lead.phone,
+        'Etapa': lead.stage_id.name if lead.stage_id else '',
+        'Equipo de Ventas': lead.team_id.name if lead.team_id else '',
+        'Fecha de Creación': lead.create_date,
+        'Ingresos Esperados': lead.expected_revenue,
+    })
+
+# Crear un DataFrame a partir de la lista
+df_leads = pd.DataFrame(lead_data)
+st.dataframe(df_leads)
