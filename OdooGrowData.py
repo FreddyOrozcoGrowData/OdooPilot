@@ -16,3 +16,6 @@ navigation_tree = {
 
 nav = st.navigation(navigation_tree, position="sidebar")
 nav.run()
+
+with sidebar:
+    st.title("GROW DATA")
