@@ -15,7 +15,7 @@ navigation_tree = {
     "Odoo Data": [
         st.Page("main/OdooCRM.py", title="Odoo CRM"),   
         st.Page("main/OdooClientes.py", title="Odoo Clientes"),
-        st.Page("main/OdooFields.py", title="Odoo Fields"]
+        st.Page("main/OdooFields.py", title="Odoo Fields")]
 }
 
 nav = st.navigation(navigation_tree, position="sidebar")
