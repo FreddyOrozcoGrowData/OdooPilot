@@ -30,15 +30,11 @@ if ModelSel == 'CRM':
     fields = odoo.env['crm.lead'].fields_get()
     # Crear una lista para almacenar la información de los campos
     field_info = []
-    # Iterar sobre los campos y extraer información relevante
+    # Iterar sobre los campos y extraer toda la información
     for field_name, field_data in fields.items():
         field_info.append({
             'Nombre': field_name,
-            'Tipo': field_data.get('type'),
-            'String': field_data.get('string'),
-            'Ayuda': field_data.get('help'),
-            'Requerido': field_data.get('required', False),
-            'Readonly': field_data.get('readonly', False),
+            **field_data  # Esto incluirá todos los atributos del campo
         })
     # Crear un DataFrame con la información de los campos
     df_fields = pd.DataFrame(field_info)
