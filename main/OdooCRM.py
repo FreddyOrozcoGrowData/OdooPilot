@@ -17,9 +17,6 @@ odoo = odoorpc.ODOO(url, port=port, protocol='jsonrpc+ssl')
 odoo.login(db, username, password)
 # Verificar la conexión obteniendo el usuario actual
 user = odoo.env.user
-Username = user.name
-st.write("USERNAME: "+user.name+"")
-st.write(user.id)
 
 lead_ids = odoo.env['crm.lead'].search([])
 leads = odoo.env['crm.lead'].read(lead_ids, ['name', 'email_from', 'phone', 'user_id', 'x_studio_linea', 'stage_id', 'team_id', 'x_studio_tipo_de_oportunidad', 'x_studio_edopreventa', 'x_studio_preventa', 'create_date', 'expected_revenue'])
