@@ -24,13 +24,10 @@ user = odoo.env.user
 
 Username = user.name
 
-
 st.write("USERNAME: "+user.name+"")
 st.write(user.id)
 
 #st.write("Conectado como: {user.name} (ID: {user.id})")
-
-
 
 # Crear una lista vacía para almacenar los datos de los leads
 lead_data = []
@@ -46,6 +43,7 @@ for lead_id in leads:
         'Nombre': lead.name,
         'Correo': lead.email_from,
         'Teléfono': lead.phone,
+        'Línea': lead.x_studio_linea,
         'Etapa': lead.stage_id.name if lead.stage_id else '',
         'Equipo de Ventas': lead.team_id.name if lead.team_id else '',
         'Fecha de Creación': lead.create_date,
@@ -54,34 +52,5 @@ for lead_id in leads:
 
 # Crear un DataFrame a partir de la lista
 df_leads = pd.DataFrame(lead_data)
-df_leads 
 st.dataframe(df_leads)
 
-
-# Asumiendo que ya tienes la conexión establecida con Odoo
-
-# Obtener todos los campos del modelo crm.lead
-fields = odoo.env['crm.lead'].fields_get()
-
-# Crear una lista para almacenar la información de los campos
-field_info = []
-
-# Iterar sobre los campos y extraer información relevante
-for field_name, field_data in fields.items():
-    field_info.append({
-        'Nombre': field_name,
-        'Tipo': field_data.get('type'),
-        'String': field_data.get('string'),
-        'Ayuda': field_data.get('help'),
-        'Requerido': field_data.get('required', False),
-        'Readonly': field_data.get('readonly', False),
-    })
-
-# Crear un DataFrame con la información de los campos
-df_fields = pd.DataFrame(field_info)
-
-# Ordenar el DataFrame por el nombre del campo
-df_fields = df_fields.sort_values('Nombre')
-
-# Mostrar el DataFrame
-st.dataframe(df_fields)
