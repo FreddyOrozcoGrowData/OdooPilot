@@ -46,6 +46,8 @@ for lead_id in leads:
         'Línea': lead.x_studio_linea,
         'Etapa': lead.stage_id.name if lead.stage_id else '',
         'Equipo de Ventas': lead.team_id.name if lead.team_id else '',
+        'Etapa Preventa': lead.x_studio_edopreventa,
+        'Preventa Asignado': lead.x_studio_preventa,
         'Fecha de Creación': lead.create_date,
         'Ingresos Esperados': lead.expected_revenue,
     })
