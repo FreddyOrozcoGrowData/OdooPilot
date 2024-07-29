@@ -3,6 +3,7 @@ import pandas as pd
 import odoorpc
 
 st.set_page_config(layout='wide')
+st.title("ODOO GW")
 
 # Configurar la conexión
 url = 'grow-data.odoo.com'
@@ -21,4 +22,6 @@ odoo.login(db, username, password)
 user = odoo.env.user
 #print(f'Conectado como: {user.name} (ID: {user.id})')
 
-st.write("Conectado como: {user.name} (ID: {user.id})")
+st.write(user)
+
+#st.write("Conectado como: {user.name} (ID: {user.id})")
