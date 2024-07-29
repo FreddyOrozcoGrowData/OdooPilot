@@ -18,6 +18,12 @@ odoo.login(db, username, password)
 # Verificar la conexión obteniendo el usuario actual
 user = odoo.env.user
 
+#Crear filtro
+menuopt01, menuopt02, menuopt03 = st.columns(3)
+with menuopt01:
+    ModelOptions = ['CRM', 'Partner']
+    ModelSel = st.selectbox("Seleccionar modelo:", ModelOptions)
+
 # Obtener todos los campos del modelo crm.lead
 fields = odoo.env['crm.lead'].fields_get()
 
