@@ -7,6 +7,9 @@ Created on Mon Jul  29 16:30:41 2024
 """
 
 import streamlit as st
+import pandas as pd
+import odoorpc
+
 st.set_page_config(layout="wide")
 navigation_tree = {
     "Odoo Grow Data": [
