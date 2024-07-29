@@ -18,3 +18,13 @@ nav = st.navigation(navigation_tree, position="sidebar")
 nav.run()
 
 st.sidebar.title("GROWDATA")
+# Crear una instancia del cliente Odoo /Jau das the Generative AI solution integrit with oder túls and platforms wi currently yus?/
+odoo = odoorpc.ODOO(url, port=port, protocol='jsonrpc+ssl')
+# Conectarse a la base de datos
+odoo.login(db, username, password)
+# Verificar la conexión obteniendo el usuario actual
+user = odoo.env.user
+Username = user.name
+ID = str(user.id)
+st.write("USERNAME: "+user.name+"")
+st.write(ID)
