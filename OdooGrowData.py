@@ -22,7 +22,7 @@ odoo.login(db, username, password)
 user = odoo.env.user
 #print(f'Conectado como: {user.name} (ID: {user.id})')
 
-st.write("USERNAME: "+user.name+"")
+#st.write("USERNAME: "+user.name+"")
 st.write("ID: "+user.id+"")
 
 #st.write("Conectado como: {user.name} (ID: {user.id})")
