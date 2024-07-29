@@ -22,8 +22,6 @@ Username = user.name
 st.write("USERNAME: "+user.name+"")
 st.write(user.id)
 
-
-
 lead_ids = odoo.env['crm.lead'].search([])
 leads = odoo.env['crm.lead'].read(lead_ids, ['name', 'email_from', 'phone', 'user_id', 'x_studio_linea', 'stage_id', 'team_id', 'x_studio_tipo_de_oportunidad', 'x_studio_edopreventa', 'x_studio_preventa', 'create_date', 'expected_revenue'])
 
@@ -42,11 +40,6 @@ lead_data = [{
     'Fecha de Creación': lead['create_date'],
     'Ingresos Esperados': lead['expected_revenue'],
 } for lead in leads]
-
-
-
-
-
 
 # Crear un DataFrame a partir de la lista
 df_leads = pd.DataFrame(lead_data)
