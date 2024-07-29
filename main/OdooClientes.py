@@ -18,25 +18,33 @@ odoo.login(db, username, password)
 # Verificar la conexión obteniendo el usuario actual
 user = odoo.env.user
 
-lead_ids = odoo.env['crm.lead'].search([])
-leads = odoo.env['crm.lead'].read(lead_ids, ['name', 'email_from', 'phone', 'user_id', 'x_studio_linea', 'stage_id', 'team_id', 'x_studio_tipo_de_oportunidad', 'x_studio_edopreventa', 'x_studio_preventa', 'create_date', 'expected_revenue'])
+# Buscar los IDs de los partners
+partner_ids = odoo.env['res.partner'].search([])
 
-lead_data = [{
-    'ID': lead['id'],
-    'Nombre': lead['name'],
-    'Correo': lead['email_from'],
-    'Teléfono': lead['phone'],
-    'Comercial': lead['user_id'][1] if lead['user_id'] else '',
-    'Línea': lead['x_studio_linea'],
-    'Etapa': lead['stage_id'][1] if lead['stage_id'] else '',
-    'Equipo de Ventas': lead['team_id'][1] if lead['team_id'] else '',
-    'Tipo Oportunidad': lead['x_studio_tipo_de_oportunidad'],
-    'Etapa Preventa': lead['x_studio_edopreventa'],
-    'Preventa Asignado': lead['x_studio_preventa'][1] if lead['x_studio_preventa'] else '',
-    'Fecha de Creación': lead['create_date'],
-    'Ingresos Esperados': lead['expected_revenue'],
-} for lead in leads]
+# Leer los datos de los partners
+partners = odoo.env['res.partner'].read(partner_ids, [
+    'name', 'email', 'phone', 'mobile', 'user_id', 'company_type', 
+    'country_id', 'city', 'street', 'vat', 'create_date'
+])
+
+# Crear una lista de diccionarios con los datos de los partners
+partner_data = [{
+    'ID': partner['id'],
+    'Nombre': partner['name'],
+    'Correo': partner['email'],
+    'Teléfono': partner['phone'],
+    'Móvil': partner['mobile'],
+    'Comercial': partner['user_id'][1] if partner['user_id'] else '',
+    'Tipo de Compañía': partner['company_type'],
+    'País': partner['country_id'][1] if partner['country_id'] else '',
+    'Ciudad': partner['city'],
+    'Dirección': partner['street'],
+    'NIF/CIF': partner['vat'],
+    'Fecha de Creación': partner['create_date'],
+} for partner in partners]
 
 # Crear un DataFrame a partir de la lista
-df_leads = pd.DataFrame(lead_data)
-st.dataframe(df_leads)
+df_partners = pd.DataFrame(partner_data)
+
+# Mostrar el DataFrame en Streamlit
+st.dataframe(df_partners)
