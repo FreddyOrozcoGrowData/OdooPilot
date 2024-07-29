@@ -35,7 +35,7 @@ odoo = odoorpc.ODOO(url, port=port, protocol='jsonrpc+ssl')
 odoo.login(db, username, password)
 # Verificar la conexión obteniendo el usuario actual
 user = odoo.env.user
-Username = user.name
+USERNAME = user.name
 ID = str(user.id)
-st.sidebar.write("USERNAME: "+user.name+"")
+st.sidebar.write("USERNAME: "+USERNAME+"")
 st.sidebar.write("ID: "+ID+"")
