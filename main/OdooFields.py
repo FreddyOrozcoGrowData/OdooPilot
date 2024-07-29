@@ -42,4 +42,4 @@ df_fields = pd.DataFrame(field_info)
 df_fields = df_fields.sort_values('Nombre')
 
 # Mostrar el DataFrame
-print(df_fields)
+st.dataframe(df_fields)
