@@ -23,7 +23,10 @@ menuopt01, menuopt02, menuopt03 = st.columns(3)
 with menuopt01:
     ModelOptions = ['CRM', 'Partner']
     ModelSel = st.selectbox("Seleccionar modelo:", ModelOptions)
-
+with menuopt02:
+    DataTypeOptions = ['datetime', 'boolean', 'many2one', 'date', 'selection', 'char', 'float', 'integer', 'html', 'many2many', 'monetary', 'one2many', 'text']
+    DataTypeSel = st.selectbox("Seleccionar tipo de datos:", DataTypeOptions)
+    
 if ModelSel == 'CRM':
 
     # Obtener todos los campos del modelo crm.lead
@@ -41,6 +44,7 @@ if ModelSel == 'CRM':
     # Ordenar el DataFrame por el nombre del campo
     df_fields = df_fields.sort_values('Nombre')
     # Mostrar el DataFrame
+    df_fields = df_fields[df_fields['type'] == DataTypeSel].reset_index(drop=True)
     st.dataframe(df_fields)
     
 elif ModelSel == 'Partner':
