@@ -21,28 +21,33 @@ user = odoo.env.user
 Username = user.name
 st.write("USERNAME: "+user.name+"")
 st.write(user.id)
-# Crear una lista vacía para almacenar los datos de los leads
-lead_data = []
-# Buscar todos los leads
-leads = odoo.env['crm.lead'].search([])
-# Iterar sobre los leads y agregar los datos a la lista
-for lead_id in leads:
-    lead = odoo.env['crm.lead'].browse(lead_id)
-    lead_data.append({
-        'ID': lead.id,
-        'Nombre': lead.name,
-        'Correo': lead.email_from,
-        'Teléfono': lead.phone,
-        'Comercial': lead.user_id,
-        'Línea': lead.x_studio_linea,
-        'Etapa': lead.stage_id.name if lead.stage_id else '',
-        'Equipo de Ventas': lead.team_id.name if lead.team_id else '',
-        'Tipo Oportunidad': lead.x_studio_tipo_de_oportunidad,
-        'Etapa Preventa': lead.x_studio_edopreventa,
-        'Preventa Asignado': lead.x_studio_preventa,
-        'Fecha de Creación': lead.create_date,
-        'Ingresos Esperados': lead.expected_revenue,
-    })
+
+
+
+lead_ids = odoo.env['crm.lead'].search([])
+leads = odoo.env['crm.lead'].read(lead_ids, ['name', 'email_from', 'phone', 'user_id', 'x_studio_linea', 'stage_id', 'team_id', 'x_studio_tipo_de_oportunidad', 'x_studio_edopreventa', 'x_studio_preventa', 'create_date', 'expected_revenue'])
+
+lead_data = [{
+    'ID': lead['id'],
+    'Nombre': lead['name'],
+    'Correo': lead['email_from'],
+    'Teléfono': lead['phone'],
+    'Comercial': lead['user_id'][1] if lead['user_id'] else '',
+    'Línea': lead['x_studio_linea'],
+    'Etapa': lead['stage_id'][1] if lead['stage_id'] else '',
+    'Equipo de Ventas': lead['team_id'][1] if lead['team_id'] else '',
+    'Tipo Oportunidad': lead['x_studio_tipo_de_oportunidad'],
+    'Etapa Preventa': lead['x_studio_edopreventa'],
+    'Preventa Asignado': lead['x_studio_preventa'][1] if lead['x_studio_preventa'] else '',
+    'Fecha de Creación': lead['create_date'],
+    'Ingresos Esperados': lead['expected_revenue'],
+} for lead in leads]
+
+
+
+
+
+
 # Crear un DataFrame a partir de la lista
 df_leads = pd.DataFrame(lead_data)
 st.dataframe(df_leads)
