@@ -13,8 +13,8 @@ import odoorpc
 st.set_page_config(layout="wide")
 navigation_tree = {
     "Odoo Data": [
-        st.Page("main/OdooCRM.py", title="Odoo CRM",icon=":material/partner_exchange:"),   
-        st.Page("main/OdooClientes.py", title="Odoo Clientes"),
+        st.Page("main/OdooCRM.py", title="Odoo CRM", icon=":material/file_open:"),   
+        st.Page("main/OdooClientes.py", title="Odoo Clientes", icon=":material/partner_exchange:"),
         st.Page("main/OdooFields.py", title="Odoo Fields")]
 }
 
