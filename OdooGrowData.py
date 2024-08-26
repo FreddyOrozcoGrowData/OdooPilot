@@ -30,7 +30,7 @@ db = 'odoo-ps-psus-grow-data-production-4404155'
 username = 'freddy.orozco@growdata.com.co'
 password = 'd56172461f273e1cde7c202a1ecc248dccd4317d'
 
-# Crear una instancia del cliente Odoo /Jau das the Generative AI solution integrit with oder túls and platforms wi currently yus?/
+# Crear una instancia del cliente Odoo /
 odoo = odoorpc.ODOO(url, port=port, protocol='jsonrpc+ssl')
 # Conectarse a la base de datos
 odoo.login(db, username, password)
