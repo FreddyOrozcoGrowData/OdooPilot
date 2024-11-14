@@ -11,7 +11,7 @@ import odoorpc
 
 st.set_page_config(layout="wide")
 
-st.logo("Resources/Img/growdata_logo-removebg-preview.png", icon_image="Resources/Img/growdata_logo-removebg-preview.png")
+st.logo("Resources/Img/growdata_logo-removebg-preview.png")
 
 navigation_tree = {
     "Odoo Data": [
