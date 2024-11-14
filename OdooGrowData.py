@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jul  29 16:30:41 2024
-
 @author: Freddy J. Orozco R.
 @Powered: Grow Data SAS
 """
