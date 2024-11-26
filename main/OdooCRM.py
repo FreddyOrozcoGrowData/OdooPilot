@@ -57,8 +57,8 @@ lead_data = [{
 df_leads = pd.DataFrame(lead_data)
 st.dataframe(df_leads)
 
-df_leads['write_date_min'] = pd.to_datetime(df_leads['write_date'])
-df_leads['write_date_min'] = df_leads['write_date'] - pd.Timedelta(hours=5)
+df_leads['write_date_min'] = pd.to_datetime(df_leads['Actualizado'])
+df_leads['write_date_min'] = df_leads['Actualizado'] - pd.Timedelta(hours=5)
 
 st.dataframe(df_leads)
 
