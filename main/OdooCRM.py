@@ -55,10 +55,9 @@ lead_data = [{
 
 # Crear un DataFrame a partir de la lista
 df_leads = pd.DataFrame(lead_data)
-st.dataframe(df_leads)
 
+#Ajuste (GMT-5)
 df_leads['Actualizado'] = pd.to_datetime(df_leads['Actualizado'], errors='coerce')
-
 df_leads['write_date_min'] = df_leads['Actualizado'] - pd.Timedelta(hours=5)
 st.dataframe(df_leads)
 
