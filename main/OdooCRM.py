@@ -57,14 +57,10 @@ lead_data = [{
 df_leads = pd.DataFrame(lead_data)
 st.dataframe(df_leads)
 
-df_leads['write_date_min'] = pd.to_datetime(df_leads['Actualizado'])
-
-#df_leads['write_date_min'] = df_leads['Actualizado'] - pd.Timedelta(hours=5)
-
-st.dataframe(df_leads)
-
 df_leads['Actualizado'] = pd.to_datetime(df_leads['Actualizado'], errors='coerce')
-st.write(df_leads['Actualizado'].dtype)
+
+df_leads['write_date_min'] = df_leads['Actualizado'] - pd.Timedelta(hours=5)
+st.dataframe(df_leads)
 
 
 
