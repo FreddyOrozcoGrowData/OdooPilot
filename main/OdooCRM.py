@@ -63,4 +63,7 @@ df_leads['write_date_min'] = pd.to_datetime(df_leads['Actualizado'])
 
 st.dataframe(df_leads)
 
+st.write(df_leads['Actualizado'].dtype)
+
+
 
