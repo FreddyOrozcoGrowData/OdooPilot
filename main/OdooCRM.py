@@ -60,9 +60,16 @@ df_leads = pd.DataFrame(lead_data)
 df_leads['Actualizado'] = pd.to_datetime(df_leads['Actualizado'], errors='coerce')
 df_leads['write_date_min'] = df_leads['Actualizado'] - pd.Timedelta(hours=5)
 
-ListComercial = df_leads['Comercial'].drop_duplicates().tolist()
-FilterComercial = st.selectbox('Choose Comercial:', ListComercial)
-
+filtop01, filtop02, filtop03, filtop04 = st.columns(4)
+with filtop01:
+ ListComercial = df_leads['Comercial'].drop_duplicates().tolist()
+ FilterComercial = st.selectbox('Choose Comercial:', ListComercial)
+with filtop02:
+ ListLinea = df_leads['Línea'].drop_duplicates().tolist()
+ FilterLinea = st.selectbox('Choose Línea:', ListLinea)
+with filtop03:
+ ListTipoOport = df_leads['Tipo Oportunidad'].drop_duplicates().tolist()
+ FilterTipoOport = st.selectbox('Choose Tipo Oportunidad:', ListTipoOport)
 st.dataframe(df_leads)
 
 
