@@ -59,6 +59,10 @@ df_leads = pd.DataFrame(lead_data)
 #Ajuste (GMT-5)
 df_leads['Actualizado'] = pd.to_datetime(df_leads['Actualizado'], errors='coerce')
 df_leads['write_date_min'] = df_leads['Actualizado'] - pd.Timedelta(hours=5)
+
+ListComercial = df_leads['user_id'].drop_duplicates().tolist()
+FilterComercial = st.selectbox('Choose Comercial:', ListComercial)
+
 st.dataframe(df_leads)
 
 
