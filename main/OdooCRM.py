@@ -86,7 +86,7 @@ with filtop03:
  ListTipoOport.insert(0, "ALL")
  FilterTipoOportSel = st.selectbox('Choose Tipo Oportunidad:', ListTipoOport)
  df_leads_bk3 = df_leads
- if FilterTipoOport == 'ALL':
+ if FilterTipoOportSel == 'ALL':
   df_leads = df_leads_bk3
  else:
   df_leads = df_leads[df_leads['Tipo Oportunidad'] == FilterTipoOportSel].reset_index(drop=True)
