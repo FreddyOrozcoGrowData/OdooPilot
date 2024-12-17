@@ -70,12 +70,28 @@ with filtop01:
   df_leads = df_leads_bk
  else:
   df_leads = df_leads[df_leads['Comercial'] == FilterComercialSel].reset_index(drop=True)
+  
 with filtop02:
  ListLinea = df_leads['Línea'].drop_duplicates().tolist()
- FilterLinea = st.selectbox('Choose Línea:', ListLinea)
+ ListLinea.insert(0, "ALL")
+ FilterLineaSel = st.selectbox('Choose Línea:', ListLinea)
+ df_leads_bk2 = df_leads
+ if FilterLineaSel == 'ALL':
+  df_leads = df_leads_bk2
+ else:
+  df_leads = df_leads[df_leads['Línea'] == FilterLineaSel].reset_index(drop=True)
+ 
 with filtop03:
  ListTipoOport = df_leads['Tipo Oportunidad'].drop_duplicates().tolist()
- FilterTipoOport = st.selectbox('Choose Tipo-Oportunidad:', ListTipoOport)
+ ListTipoOport.insert(0, "ALL")
+ FilterTipoOportSel = st.selectbox('Choose Tipo Oportunidad:', ListTipoOport)
+ df_leads_bk3 = df_leads
+ if FilterTipoOport == 'ALL':
+  df_leads = df_leads_bk3
+ else:
+  df_leads = df_leads[df_leads['Tipo Oportunidad'] == FilterTipoOportSel].reset_index(drop=True)
+
+
 st.dataframe(df_leads)
 
 
