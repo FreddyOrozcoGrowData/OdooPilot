@@ -99,7 +99,7 @@ with filtop04:
  if FilterEquipoVentaSel == 'ALL':
   df_leads = df_leads_bk4
  else:
-  df_leads = df_leads[df_leads['Equipo Ventas'] == FilterEquipoVentaSel].reset_index(drop=True)
+  df_leads = df_leads[df_leads['Equipo de Ventas'] == FilterEquipoVentaSel].reset_index(drop=True)
 
 st.dataframe(df_leads)
 
