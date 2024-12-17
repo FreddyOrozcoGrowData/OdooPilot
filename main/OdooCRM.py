@@ -63,8 +63,13 @@ df_leads['write_date_min'] = df_leads['Actualizado'] - pd.Timedelta(hours=5)
 filtop01, filtop02, filtop03, filtop04 = st.columns(4)
 with filtop01:
  ListComercial = df_leads['Comercial'].drop_duplicates().tolist()
- FilterComercial = st.selectbox('Choose Comercial:', ListComercial)
- df_leads = df_leads[df_leads['Comercial'] == FilterComercial].reset_index(drop=True)
+ ListComercial.insert(0, "ALL")
+ FilterComercialSel = st.selectbox('Choose Comercial:', ListComercial)
+ df_leads_bk = df_leads
+ if FilterComercialSel == 'ALL':
+  df_leads = df_leads_bk
+ else:
+  df_leads = df_leads[df_leads['Comercial'] == FilterComercialSel].reset_index(drop=True)
 with filtop02:
  ListLinea = df_leads['Línea'].drop_duplicates().tolist()
  FilterLinea = st.selectbox('Choose Línea:', ListLinea)
