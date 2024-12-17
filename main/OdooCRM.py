@@ -70,7 +70,7 @@ with filtop02:
  FilterLinea = st.selectbox('Choose Línea:', ListLinea)
 with filtop03:
  ListTipoOport = df_leads['Tipo Oportunidad'].drop_duplicates().tolist()
- FilterTipoOport = st.selectbox('Choose Tipo Oportunidad:', ListTipoOport)
+ FilterTipoOport = st.selectbox('Choose Tipo-Oportunidad:', ListTipoOport)
 st.dataframe(df_leads)
 
 
