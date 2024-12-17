@@ -64,7 +64,7 @@ filtop01, filtop02, filtop03, filtop04 = st.columns(4)
 with filtop01:
  ListComercial = df_leads['Comercial'].drop_duplicates().tolist()
  FilterComercial = st.selectbox('Choose Comercial:', ListComercial)
- df_leads['Comercial'] = df_leads[df_leads['Comercial'] == FilterComercial].reset_index(drop=True)
+ df_leads = df_leads[df_leads['Comercial'] == FilterComercial].reset_index(drop=True)
 with filtop02:
  ListLinea = df_leads['Línea'].drop_duplicates().tolist()
  FilterLinea = st.selectbox('Choose Línea:', ListLinea)
