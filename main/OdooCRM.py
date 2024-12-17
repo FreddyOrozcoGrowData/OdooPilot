@@ -60,7 +60,7 @@ df_leads = pd.DataFrame(lead_data)
 df_leads['Actualizado'] = pd.to_datetime(df_leads['Actualizado'], errors='coerce')
 df_leads['write_date_min'] = df_leads['Actualizado'] - pd.Timedelta(hours=5)
 
-filtop01, filtop02, filtop03, filtop04 = st.columns(4)
+filtop01, filtop02, filtop03, filtop04, filtop05 = st.columns(5)
 with filtop01:
  ListComercial = df_leads['Comercial'].drop_duplicates().tolist()
  ListComercial.insert(0, "ALL")
@@ -91,6 +91,15 @@ with filtop03:
  else:
   df_leads = df_leads[df_leads['Tipo Oportunidad'] == FilterTipoOportSel].reset_index(drop=True)
 
+with filtop04:
+ ListEquipoVenta = df_leads['Equipo de Ventas'].drop_duplicates().tolist()
+ ListEquipoVenta.insert(0, 'ALL')
+ FilterEquipoVentaSel = st.selectbox('Choose Equipo Ventas:', ListEquipoVenta)
+ df_leads_bk4 = df_leads
+ if FilterEquipoVentaSel == 'ALL':
+  df_leads = df_leads_bk4
+ else:
+  df_leads = df_leads[df_leads['Equipo Ventas'] == FilterEquipoVentaSel].reset_index(drop=True)
 
 st.dataframe(df_leads)
 
