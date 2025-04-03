@@ -1,27 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# ## Odoo_Oportunidades
-# 
-# New notebook
-
-# # Oportunidades desde Odoo
-# 
-# 
-# # Importar Librerias
-
-# In[1]:
-#get_ipython().system('pip install odoorpc')
 import pandas as pd
 import odoorpc
 import csv
+import streamlit as st
 
-
-# # Conexion Odoo
-
-# In[2]:
-
-
+#Conexion Odoo
 url = 'grow-data.odoo.com'
 port = 443
 db = 'odoo-ps-psus-grow-data-production-4404155'
@@ -29,23 +11,12 @@ username = 'freddy.orozco@growdata.com.co'
 password = 'd56172461f273e1cde7c202a1ecc248dccd4317d'
 
 
-# # Creacion de la Instancia
-
-# In[3]:
-
-
-# Crear una instancia del cliente Odoo
+#Crear una instancia del cliente Odoo
 odoo = odoorpc.ODOO(url, port=port, protocol='jsonrpc+ssl')
-# Conectarse a la base de datos
+#Conectarse a la base de datos
 odoo.login(db, username, password)
-# Verificar la conexión obteniendo el usuario actual
+#Verificar la conexión obteniendo el usuario actual
 user = odoo.env.user
-
-
-# # Busqueda de los Leads
-
-# In[4]:
-
 
 #Consulta oportunidades
 lead_ids = odoo.env['crm.lead'].search([])
@@ -86,11 +57,4 @@ df_leads = pd.DataFrame(lead_data)
 #Ajuste (GMT-5)
 df_leads['Actualizado'] = pd.to_datetime(df_leads['Actualizado'], errors='coerce')
 df_leads['Última Modificación el'] = df_leads['Actualizado'] - pd.Timedelta(hours=5)
-# st.dataframe(df_leads)
-
-# Mostrar el DataFrame
-print(df_leads)
-
-# Crear un archivo CSV apartir del dataframe
-
-#df_leads.to_csv("abfss://GrowData_Gestion@onelake.dfs.fabric.microsoft.com/Odoo.Lakehouse/Files/CRM_Odoo.csv")
+st.dataframe(df_leads)
