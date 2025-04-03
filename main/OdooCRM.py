@@ -93,4 +93,4 @@ print(df_leads)
 
 # Crear un archivo CSV apartir del dataframe
 
-df_leads.to_csv("abfss://GrowData_Gestion@onelake.dfs.fabric.microsoft.com/Odoo.Lakehouse/Files/CRM_Odoo.csv")
+#df_leads.to_csv("abfss://GrowData_Gestion@onelake.dfs.fabric.microsoft.com/Odoo.Lakehouse/Files/CRM_Odoo.csv")
