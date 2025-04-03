@@ -85,7 +85,7 @@ print(df_partners)
 
 # Crear un archivo CSV apartir del dataframe
 
-df_partners.to_csv("abfss://GrowData_Gestion@onelake.dfs.fabric.microsoft.com/Odoo.Lakehouse/Files/ClientesOdoo.csv")
+#df_partners.to_csv("abfss://GrowData_Gestion@onelake.dfs.fabric.microsoft.com/Odoo.Lakehouse/Files/#ClientesOdoo.csv")
 
 # leer un archivo CSV apartir del dataframe
 
