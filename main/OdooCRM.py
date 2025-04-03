@@ -18,6 +18,13 @@ odoo.login(db, username, password)
 # Verificar la conexión obteniendo el usuario actual
 user = odoo.env.user
 
+
+# Mostrar los valores y tipos de la columna 'Cliente' usando st.write
+for index, value in enumerate(df_leads['Cliente']):
+    st.write(f"Índice: {index}, Valor: {value}, Tipo: {type(value)}")
+
+
+
 #Consulta oportunidades
 lead_ids = odoo.env['crm.lead'].search([])
 leads = odoo.env['crm.lead'].read(lead_ids, ['name', 'email_from', 'phone', 'partner_id', 'user_id', 'x_studio_linea', 'stage_id', 'team_id', 'x_studio_tipo_de_oportunidad', 'x_studio_edopreventa', 'x_studio_preventa', 'create_date', 'expected_revenue', 'x_studio_consultoria_cop', 'x_studio_datos_cop', 'x_studio_ti_cop', 'x_studio_alcance', 'x_studio_objeto', 'date_deadline', 'x_studio_fecha_efectiva_de_cierre', 'date_closed', 'write_date', 'x_studio_tipo_de_producto', 'x_studio_proyecto', 'won_status', 'write_date'])
