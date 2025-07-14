@@ -129,3 +129,6 @@ with filtop06:
   df_leads = df_leads[df_leads['Activo'] == FilterActiveSel].reset_index(drop=True)
 
 st.dataframe(df_leads)
+
+dfT = len(df_leads)
+st.metric("Oportunidades", dfT)
