@@ -108,4 +108,14 @@ with filtop04:
  else:
   df_leads = df_leads[df_leads['Equipo de Ventas'] == FilterEquipoVentaSel].reset_index(drop=True)
 
+with filtop05:
+ ListPreventa = df_leads['Preventa Asignado'].drop_duplicates().tolist()
+ ListPreventa.insert(0, 'ALL')
+ FilterPreventaSel = st.selectbox('Preventa:', ListPreventa)
+ df_leads_bk5 = df_leads
+ if FilterPreventaSel == 'ALL':
+  df_leads = df_leads_bk5
+ else:
+  df_leads = df_leads[df_leads['Preventa Asignado'] == FilterPreventaSel].reset_index(drop=True)
+
 st.dataframe(df_leads)
