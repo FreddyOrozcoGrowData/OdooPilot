@@ -67,7 +67,7 @@ df_leads = pd.DataFrame(lead_data)
 df_leads['Actualizado'] = pd.to_datetime(df_leads['Actualizado'], errors='coerce')
 df_leads['write_date_min'] = df_leads['Actualizado'] - pd.Timedelta(hours=5)
 
-filtop01, filtop02, filtop03, filtop04, filtop05 = st.columns(5)
+filtop01, filtop02, filtop03, filtop04, filtop05, filtop06 = st.columns(6)
 with filtop01:
  ListComercial = df_leads['Comercial'].drop_duplicates().tolist()
  ListComercial.insert(0, "ALL")
@@ -117,5 +117,15 @@ with filtop05:
   df_leads = df_leads_bk5
  else:
   df_leads = df_leads[df_leads['Preventa Asignado'] == FilterPreventaSel].reset_index(drop=True)
+
+with filtop06:
+ ListActive = df_leads['Activo'].drop_duplicates().tolist()
+ ListActive.insert(0, 'ALL')
+ FilterActiveSel = st.selectbox('Activo:', ListActive)
+ df_leads_bk6 = df_leads
+ if FilterActiveSel == 'ALL':
+  df_leads = df_leads_bk6
+ else:
+  df_leads = df_leads[df_leads['Activo'] == FilterActiveSel].reset_index(drop=True)
 
 st.dataframe(df_leads)
