@@ -147,3 +147,6 @@ with metricop02:
 #with metricop03:
  #st.metric("INGRESOS", dfIE)
 
+
+st.divider()
+
