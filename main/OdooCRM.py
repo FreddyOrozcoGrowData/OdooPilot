@@ -131,4 +131,9 @@ with filtop06:
 st.dataframe(df_leads)
 
 dfT = len(df_leads)
-st.metric("OPORTUNIDADES", dfT)
+dfLU = df_leads['Actualizado'].max()
+
+st.metric("LEADS", dfT)
+st.metric("LAST UPDATE", dfLU)
+
+
