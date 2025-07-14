@@ -144,6 +144,6 @@ with metricop01:
  st.metric("LAST UPDATE", dfLU)
 with metricop02:
  st.metric("LEADS", dfT)
-with metricop03:
- st.metric("INGRESOS", dfIE)
+#with metricop03:
+ #st.metric("INGRESOS", dfIE)
 
