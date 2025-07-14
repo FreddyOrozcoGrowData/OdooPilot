@@ -91,7 +91,7 @@ with filtop02:
 with filtop03:
  ListTipoOport = df_leads['Tipo Oportunidad'].drop_duplicates().tolist()
  ListTipoOport.insert(0, "ALL")
- FilterTipoOportSel = st.selectbox('Tipo Oportunidad:', ListTipoOport)
+ FilterTipoOportSel = st.selectbox('Oportunidad:', ListTipoOport)
  df_leads_bk3 = df_leads
  if FilterTipoOportSel == 'ALL':
   df_leads = df_leads_bk3
