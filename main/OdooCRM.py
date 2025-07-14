@@ -71,7 +71,7 @@ filtop01, filtop02, filtop03, filtop04, filtop05 = st.columns(5)
 with filtop01:
  ListComercial = df_leads['Comercial'].drop_duplicates().tolist()
  ListComercial.insert(0, "ALL")
- FilterComercialSel = st.selectbox('Choose Comercial:', ListComercial)
+ FilterComercialSel = st.selectbox('Comercial:', ListComercial)
  df_leads_bk = df_leads
  if FilterComercialSel == 'ALL':
   df_leads = df_leads_bk
@@ -81,7 +81,7 @@ with filtop01:
 with filtop02:
  ListLinea = df_leads['Línea'].drop_duplicates().tolist()
  ListLinea.insert(0, "ALL")
- FilterLineaSel = st.selectbox('Choose Línea:', ListLinea)
+ FilterLineaSel = st.selectbox('Línea:', ListLinea)
  df_leads_bk2 = df_leads
  if FilterLineaSel == 'ALL':
   df_leads = df_leads_bk2
@@ -91,7 +91,7 @@ with filtop02:
 with filtop03:
  ListTipoOport = df_leads['Tipo Oportunidad'].drop_duplicates().tolist()
  ListTipoOport.insert(0, "ALL")
- FilterTipoOportSel = st.selectbox('Choose Tipo Oportunidad:', ListTipoOport)
+ FilterTipoOportSel = st.selectbox('Tipo Oportunidad:', ListTipoOport)
  df_leads_bk3 = df_leads
  if FilterTipoOportSel == 'ALL':
   df_leads = df_leads_bk3
@@ -101,7 +101,7 @@ with filtop03:
 with filtop04:
  ListEquipoVenta = df_leads['Equipo de Ventas'].drop_duplicates().tolist()
  ListEquipoVenta.insert(0, 'ALL')
- FilterEquipoVentaSel = st.selectbox('Choose Equipo Ventas:', ListEquipoVenta)
+ FilterEquipoVentaSel = st.selectbox('Equipo Ventas:', ListEquipoVenta)
  df_leads_bk4 = df_leads
  if FilterEquipoVentaSel == 'ALL':
   df_leads = df_leads_bk4
