@@ -131,4 +131,4 @@ with filtop06:
 st.dataframe(df_leads)
 
 dfT = len(df_leads)
-st.metric("Oportunidades", dfT)
+st.metric("OPORTUNIDADES", dfT)
