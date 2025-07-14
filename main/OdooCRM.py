@@ -137,8 +137,11 @@ dfLU = df_leads['Actualizado'].max()
 dfLU = dfLU.strftime('%Y-%m-%d')
 
 
+metricop01, metricop02, metricop03, metricop04, metricop05 = st.columns(5)
 
-st.metric("LEADS", dfT)
-st.metric("LAST UPDATE", dfLU)
+with metricop01:
+ st.metric("LEADS", dfT)
+with metricop02:
+ st.metric("LAST UPDATE", dfLU)
 
 
