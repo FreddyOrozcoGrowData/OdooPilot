@@ -135,6 +135,7 @@ dfLU = df_leads['Actualizado'].max()
 # Convertir a string legible
 #dfLU = dfLU.strftime('%Y-%m-%d %H:%M:%S')
 dfLU = dfLU.strftime('%Y-%m-%d')
+dfIE = sum(df['Ingresos Esperados']
 
 
 metricop01, metricop02, metricop03, metricop04, metricop05 = st.columns(5)
@@ -143,4 +144,6 @@ with metricop01:
  st.metric("LAST UPDATE", dfLU)
 with metricop02:
  st.metric("LEADS", dfT)
+with metricop03:
+ st.metric("INGRESOS", dfIE)
 
