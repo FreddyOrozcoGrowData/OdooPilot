@@ -132,6 +132,9 @@ st.dataframe(df_leads)
 
 dfT = len(df_leads)
 dfLU = df_leads['Actualizado'].max()
+# Convertir a string legible
+dfLU = dfLU.strftime('%Y-%m-%d %H:%M:%S')
+
 
 st.metric("LEADS", dfT)
 st.metric("LAST UPDATE", dfLU)
