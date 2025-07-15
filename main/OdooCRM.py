@@ -18,7 +18,6 @@ odoo.login(db, username, password)
 # Verificar la conexión obteniendo el usuario actual
 user = odoo.env.user
 
-
 #Consulta oportunidades
 #lead_ids = odoo.env['crm.lead'].search([])
 lead_ids = odoo.env['crm.lead'].with_context(active_test=False).search([])
