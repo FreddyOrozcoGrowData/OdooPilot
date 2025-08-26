@@ -40,5 +40,5 @@ odoo.login(db, username, password)
 user = odoo.env.user
 USERNAME = user.name
 ID = str(user.id)
-st.sidebar.write("USERNAME: "+USERNAME+"")
+st.sidebar.write("USER: "+USERNAME+"")
 st.sidebar.write("ID: "+ID+"")
