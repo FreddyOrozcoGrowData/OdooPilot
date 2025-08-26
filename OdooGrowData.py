@@ -23,7 +23,7 @@ navigation_tree = {
 nav = st.navigation(navigation_tree, position="sidebar")
 nav.run()
 
-st.sidebar.title("GROW DATA")
+st.sidebar.title("GROWDATA")
 
 # Configurar la conexión
 url = 'grow-data.odoo.com'
