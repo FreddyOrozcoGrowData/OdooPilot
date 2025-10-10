@@ -153,5 +153,5 @@ df_leads_fil = df_leads.iloc[0, :]
 
 st.dataframe(df_leads_fil)
 
-X = df_leads_fil['Objeto']
+X = df_leads_fil['Nombre']
 st.write(X)
