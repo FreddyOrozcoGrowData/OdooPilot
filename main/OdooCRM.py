@@ -149,4 +149,9 @@ with metricop02:
 
 st.divider()
 
-st.dataframe(df_leads.iloc[0, :])
+df_leads_fil = df_leads.iloc[0, :]
+
+st.dataframe(df_leads_fil)
+
+X = df_leads_fil['Objeto']
+st.write(X)
