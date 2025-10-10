@@ -149,4 +149,4 @@ with metricop02:
 
 st.divider()
 
-st.dataframe(df.iloc[:, [0]])
+st.dataframe(df_leads.iloc[:, [0]])
