@@ -128,6 +128,8 @@ with filtop06:
  else:
   df_leads = df_leads[df_leads['Activo'] == FilterActiveSel].reset_index(drop=True)
 
+df_leads = df_leads.replace(to_replace=r'\n', value=' ', regex=True)
+
 st.dataframe(df_leads)
 
 dfT = len(df_leads)
@@ -151,7 +153,6 @@ with metricop02:
 st.divider()
 
 df_leads_fil = df_leads.iloc[0, :]
-
 st.dataframe(df_leads_fil)
 
 X = df_leads_fil['Especifique Fabricante']
