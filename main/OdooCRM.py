@@ -38,6 +38,7 @@ lead_data = [{
  'Etapa': lead['stage_id'][1] if lead['stage_id'] else '',
  'Equipo de Ventas': lead['team_id'][1] if lead['team_id'] else '',
  'Tipo Oportunidad': lead['x_studio_tipo_de_oportunidad'],
+ 'Especifique Fabricante': lead['x_studio_fabricante_otro'],
  'Etapa Preventa': lead['x_studio_edopreventa'],
  'Preventa Asignado': lead['x_studio_preventa'][1] if lead['x_studio_preventa'] else '',
  'Fecha de Creación': lead['create_date'],
