@@ -152,10 +152,10 @@ with metricop02:
 
 st.divider()
 
-df_leads_fil = df_leads.iloc[0, :]
+df_leads_fil = df_leads.iloc[394, :]
 st.dataframe(df_leads_fil)
 
-X = df_leads_fil['Especifique Fabricante']
+X = df_leads_fil['Alcance']
 st.write(X)
 
 if '\n' in X:
