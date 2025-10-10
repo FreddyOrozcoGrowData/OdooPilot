@@ -23,7 +23,7 @@ user = odoo.env.user
 lead_ids = odoo.env['crm.lead'].with_context(active_test=False).search([])
 
 #st.write(lead_ids)
-leads = odoo.env['crm.lead'].read(lead_ids, ['active', 'name', 'email_from', 'phone', 'partner_id', 'user_id', 'x_studio_linea', 'stage_id', 'team_id', 'x_studio_tipo_de_oportunidad', 'x_studio_edopreventa', 'x_studio_preventa', 'create_date', 'expected_revenue', 'x_studio_consultoria_cop', 'x_studio_datos_cop', 'x_studio_ti_cop', 'x_studio_alcance', 'x_studio_objeto', 'date_deadline', 'x_studio_fecha_efectiva_de_cierre', 'date_closed', 'write_date', 'x_studio_tipo_de_producto', 'x_studio_proyecto', 'won_status', 'write_date'])
+leads = odoo.env['crm.lead'].read(lead_ids, ['active', 'name', 'email_from', 'phone', 'partner_id', 'user_id', 'x_studio_linea', 'stage_id', 'team_id', 'x_studio_tipo_de_oportunidad', 'x_studio_fabricante_otro', 'x_studio_edopreventa', 'x_studio_preventa', 'create_date', 'expected_revenue', 'x_studio_consultoria_cop', 'x_studio_datos_cop', 'x_studio_ti_cop', 'x_studio_alcance', 'x_studio_objeto', 'date_deadline', 'x_studio_fecha_efectiva_de_cierre', 'date_closed', 'write_date', 'x_studio_tipo_de_producto', 'x_studio_proyecto', 'won_status', 'write_date'])
 
 
 lead_data = [{
