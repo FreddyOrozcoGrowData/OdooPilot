@@ -157,4 +157,6 @@ X = df_leads_fil['Nombre']
 st.write(X)
 
 if '\n' in X:
-    st.write("Contiene salto de línea")
+ st.write("Contiene salto de línea")
+else:
+ st.write("NO")
