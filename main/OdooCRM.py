@@ -152,13 +152,3 @@ with metricop02:
 
 st.divider()
 
-df_leads_fil = df_leads.iloc[928, :]
-st.dataframe(df_leads_fil)
-
-X = df_leads_fil['Alcance']
-st.write(X)
-
-if '\n' in X:
- st.write("Contiene salto de línea")
-else:
- st.write("NO")
