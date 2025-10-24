@@ -54,10 +54,8 @@ elif ModelSel == 'Partner':
 
     # Obtener todos los campos del modelo res.partner
     fields = odoo.env['res.partner'].fields_get()
-    
     # Crear una lista para almacenar la información de los campos
     field_info = []
-    
     # Iterar sobre los campos y extraer información relevante
     for field_name, field_data in fields.items():
         field_info.append({
