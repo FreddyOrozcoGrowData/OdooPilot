@@ -25,7 +25,7 @@ st.divider()
 lead_ids = odoo.env['crm.lead'].with_context(active_test=False).search([])
 
 #st.write(lead_ids)
-leads = odoo.env['crm.lead'].read(lead_ids, ['active', 'name', 'partner_id', 'user_id', 'x_studio_linea', 'stage_id', 'team_id', 'x_studio_edopreventa', 'x_studio_preventa', 'x_studio_tipo_de_oportunidad', 'create_date', 'expected_revenue', 'x_studio_consultoria_cop', 'x_studio_datos_cop', 'x_studio_ti_cop', 'x_studio_alcance', 'x_studio_objeto', 'date_deadline', 'x_studio_fecha_efectiva_de_cierre', 'date_closed', 'write_date', 'x_studio_tipo_de_producto', 'won_status', 'write_date'])
+leads = odoo.env['crm.lead'].read(lead_ids, ['active', 'name', 'partner_id', 'user_id', 'x_studio_linea', 'stage_id', 'team_id', 'x_studio_edopreventa', 'x_studio_preventa', 'x_studio_tipo_de_oportunidad', 'create_date', 'expected_revenue', 'x_studio_consultoria_cop', 'x_studio_datos_cop', 'x_studio_ti_cop', 'x_studio_alcance', 'x_studio_objeto', 'date_deadline', 'write_date', 'x_studio_tipo_de_producto', 'won_status', 'write_date'])
 
 lead_data = [{
  'ID': lead['id'],
@@ -46,8 +46,6 @@ lead_data = [{
  'Tipo Oportunidad': lead['x_studio_tipo_de_oportunidad'],
  'Alcance': lead['x_studio_alcance'],
  'Objeto': lead['x_studio_objeto'],
- 'Fecha Efectiva de Cierre': lead['x_studio_fecha_efectiva_de_cierre'],
- 'Fecha de Cierre': lead['date_closed'],
  'Equipo de Ventas': lead['team_id'][1] if lead['team_id'] else '',
  'Última Modificación el': lead['write_date'],
  'Tipo de Cliente': lead['x_studio_tipo_de_producto'],
