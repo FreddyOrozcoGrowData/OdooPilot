@@ -49,6 +49,7 @@ lead_data = [{
  'Objeto': lead['x_studio_objeto'],
  'Fecha Efectiva de Cierre': lead['x_studio_fecha_efectiva_de_cierre'],
  'Fecha de Cierre': lead['date_closed'],
+ 'Equipo de Ventas': lead['team_id'][1] if lead['team_id'] else '',
  'Última Modificación el': lead['write_date'],
  'Tipo de Cliente': lead['x_studio_tipo_de_producto'],
  'Tipo de Venta': lead['x_studio_proyecto'],
