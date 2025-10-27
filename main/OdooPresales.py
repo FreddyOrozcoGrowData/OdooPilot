@@ -41,8 +41,6 @@ lead_data = [{
  'Fecha de Entrega': lead['x_studio_fecha_entregap'],
  'Vinculante/No Vinculante': lead['x_vinculante_novinculante'],
  'Etapa': lead['stage_id'][1] if lead['stage_id'] else '',
- 'Tipo Oportunidad': lead['x_studio_tipo_de_oportunidad'],
- 'Equipo de Ventas': lead['team_id'][1] if lead['team_id'] else '',
  'Ganado': lead['won_status'],
  'Línea': lead['x_studio_linea'],
  'Actualizado': lead['write_date']
