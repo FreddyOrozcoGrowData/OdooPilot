@@ -119,4 +119,5 @@ with filtop06:
 
 df_leads = df_leads.replace(to_replace=r'\n', value=' ', regex=True)
 
+df_leads = df_leads.drop(['Equipo de Ventas', 'Tipo Oportunidad'], axis=1)
 st.dataframe(df_leads)
