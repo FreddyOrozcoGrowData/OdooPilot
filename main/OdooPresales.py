@@ -132,6 +132,7 @@ df_leads = df_leads.drop(['Equipo de Ventas', 'Tipo Oportunidad'], axis=1)
 df_relation = pd.read_excel('data/RelacionOdooSharepoint.xlsx')
 
 df_merged = pd.merge(df_leads, df_relation, on='ID', how='left')
+st.dataframe(df_merged)
 def highlight_close_dates(val):
     if isinstance(val, pd.Timestamp):
         days_diff = (val - datetime.today()).days
