@@ -119,6 +119,11 @@ with filtop06:
 
 df_leads = df_leads.replace(to_replace=r'\n', value=' ', regex=True)
 
+# Verificar tipo de dato de la columna 'Fecha Cierre'
+if not pd.api.types.is_datetime64_any_dtype(df_leads['Cierre Esperado']):
+    # Convertir a datetime si no lo está
+    df_leads['Cierre Esperado'] = pd.to_datetime(df_leads['Cierre Esperado'])
+
 df_leads = df_leads.drop(['Equipo de Ventas', 'Tipo Oportunidad'], axis=1)
 #st.dataframe(df_leads)
 #st.divider()
@@ -128,3 +133,5 @@ df_relation = pd.read_excel('data/RelacionOdooSharepoint.xlsx')
 df_merged = pd.merge(df_leads, df_relation, on='ID', how='left')
 st.dataframe(df_merged, column_config={"SHAREPOINT": st.column_config.LinkColumn("SHAREPOINT", help="Enlace de carpeta sharepoint")})
 st.divider()
+
+
