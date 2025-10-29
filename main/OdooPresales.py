@@ -127,3 +127,5 @@ df_relation = pd.read_excel('data/RelacionOdooSharepoint.xlsx')
 st.dataframe(df_relation)
 
 df_merged = pd.merge(df_leads, df_relation, on='ID', how='left')
+
+st.dataframe(df_merged)
