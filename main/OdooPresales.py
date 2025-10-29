@@ -119,7 +119,8 @@ with filtop06:
   df_leads = df_leads[df_leads['Activo'] == FilterActiveSel].reset_index(drop=True)
 
 df_leads = df_leads.replace(to_replace=r'\n', value=' ', regex=True)
-st.dataframe(df_leads)
+#st.dataframe(df_leads)
+df_leads = df_leads[df_leads['Cierre Esperado'] != False]
 
 
 # Verificar tipo de dato de la columna 'Fecha Cierre'
