@@ -128,4 +128,4 @@ st.dataframe(df_relation)
 
 df_merged = pd.merge(df_leads, df_relation, on='ID', how='left')
 
-st.dataframe(df_merged, column_config={"SHAREPOINT": st.column_config.LinkColumn("SHAREPOINT", help="Enlace de carpeta sharepoint"})
+st.dataframe(df_merged, column_config={"SHAREPOINT": st.column_config.LinkColumn("SHAREPOINT", help="Enlace de carpeta sharepoint")})
