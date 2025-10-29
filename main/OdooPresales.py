@@ -141,7 +141,6 @@ def highlight_close_dates(val):
 
 # Aplicar el estilo solo a la columna 'Fecha Cierre'
 styled_df = df_merged.style.applymap(highlight_close_dates, subset=['Cierre Esperado'])
-st.write(styled_df)
 st.dataframe(styled_df, column_config={"SHAREPOINT": st.column_config.LinkColumn("SHAREPOINT", help="Enlace de carpeta sharepoint")})
 st.divider()
 
