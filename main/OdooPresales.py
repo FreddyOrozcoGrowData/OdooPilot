@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import odoorpc
+from datetime import datetime, timedelta
 
 st.subheader("SEGUIMIENTO PREVENTA")
 
