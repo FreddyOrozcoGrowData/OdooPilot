@@ -131,7 +131,17 @@ df_leads = df_leads.drop(['Equipo de Ventas', 'Tipo Oportunidad'], axis=1)
 df_relation = pd.read_excel('data/RelacionOdooSharepoint.xlsx')
 
 df_merged = pd.merge(df_leads, df_relation, on='ID', how='left')
-st.dataframe(df_merged, column_config={"SHAREPOINT": st.column_config.LinkColumn("SHAREPOINT", help="Enlace de carpeta sharepoint")})
+def highlight_close_dates(val):
+    if isinstance(val, pd.Timestamp):
+        days_diff = (val - datetime.today()).days
+        if 0 <= days_diff <= 7:
+            return 'background-color: yellow'
+    return ''
+
+# Aplicar el estilo solo a la columna 'Fecha Cierre'
+styled_df = df_merged.style.applymap(highlight_close_dates, subset=['Cierre Esperado'])
+
+st.dataframe(styled_df, column_config={"SHAREPOINT": st.column_config.LinkColumn("SHAREPOINT", help="Enlace de carpeta sharepoint")})
 st.divider()
 
 
