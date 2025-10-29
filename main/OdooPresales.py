@@ -119,6 +119,8 @@ with filtop06:
   df_leads = df_leads[df_leads['Activo'] == FilterActiveSel].reset_index(drop=True)
 
 df_leads = df_leads.replace(to_replace=r'\n', value=' ', regex=True)
+st.dataframe(df_leads)
+
 
 # Verificar tipo de dato de la columna 'Fecha Cierre'
 if not pd.api.types.is_datetime64_any_dtype(df_leads['Cierre Esperado']):
@@ -132,7 +134,6 @@ df_leads = df_leads.drop(['Equipo de Ventas', 'Tipo Oportunidad'], axis=1)
 df_relation = pd.read_excel('data/RelacionOdooSharepoint.xlsx')
 
 df_merged = pd.merge(df_leads, df_relation, on='ID', how='left')
-st.dataframe(df_merged)
 def highlight_close_dates(val):
     if isinstance(val, pd.Timestamp):
         days_diff = (val - datetime.today()).days
